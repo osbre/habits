@@ -46,7 +46,7 @@ export default {
         accomplishments: Array,
     },
     methods: {
-        accomplishHabit(habit_id, day) {
+        logExecution(habit_id, day) {
 
         }
     }
