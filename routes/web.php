@@ -28,11 +28,4 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/api/habits', function () {
-    $data = request()->validate([
-        'title' => 'required',
-    ]);
-
-})->middleware('auth');
-
 require __DIR__.'/auth.php';
