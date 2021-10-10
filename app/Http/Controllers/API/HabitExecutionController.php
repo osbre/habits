@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Http\Requests\StoreHabitExecutionRequest;
 use App\Models\Habit;
+use Illuminate\Routing\Middleware\SubstituteBindings;
 use Spatie\RouteAttributes\Attributes\{Middleware, Post, Prefix};
 use Symfony\Component\HttpFoundation\Response;
+use function response;
 
-#[Middleware('auth')]
+#[Middleware('auth', SubstituteBindings::class)]
 #[Prefix('/api')]
 final class HabitExecutionController
 {
