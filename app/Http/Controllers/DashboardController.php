@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Middleware\HandleInertiaRequests;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Spatie\RouteAttributes\Attributes\Get;
-use Spatie\RouteAttributes\Attributes\Middleware;
 
 class DashboardController
 {
     #[Get('/dashboard', name: 'dashboard', middleware: ['web', 'auth', 'verified'])]
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard', [
+            'habits' => $request->user()->habits,
+        ]);
     }
 }

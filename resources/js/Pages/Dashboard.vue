@@ -2,6 +2,11 @@
 import Layout from '@/Layouts/Authenticated.vue'
 import {Head} from '@inertiajs/inertia-vue3'
 import WeeklyOverview from "@/Components/WeeklyOverview.vue";
+import Button from "@/Components/Breeze/Button.vue";
+import {ref} from "@vue/reactivity";
+import AddHabitModal from "@/Components/AddHabitModal.vue";
+
+const modalOpen = ref(false)
 </script>
 
 <template>
@@ -17,9 +22,10 @@ import WeeklyOverview from "@/Components/WeeklyOverview.vue";
                 <WeeklyOverview :habits="[
                     {title: 'Practice Tailwind CSS'}
                 ]"/>
-                <!--                <section class="mt-5 bg-white overflow-hidden shadow-sm sm:rounded-lg">-->
-                <!--                    <div class="p-6 bg-white border-b border-gray-200">"You're logged in!"</div>-->
-                <!--                </section>-->
+
+                <Button @click="modalOpen = true" class="mt-3">Add new habit</Button>
+
+                <AddHabitModal v-show="modalOpen" @cancel="modalOpen = false" />
             </div>
 
         </div>
