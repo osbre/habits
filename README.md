@@ -1,3 +1,4 @@
+Habit-tracking app that helps you stay accountable and see a "big picture" of your habits situation.
 
 ## Instructions
 
@@ -31,3 +32,4 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
+LaraJam 2021 entry.
